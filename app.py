@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
@@ -8,7 +9,8 @@ from resources.store import Stores, StoreList
 from db import db
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL", "sqlite:///data.db")  # If DATABASE_URL is not present in heroku app will use sqlite
+# app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/flaskRest'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.secret_key = 'pratisha'

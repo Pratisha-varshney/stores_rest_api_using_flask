@@ -8,8 +8,8 @@ from resources.store import Stores, StoreList
 from db import db
 
 app = Flask(__name__)
-# app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/flaskRest'
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/flaskRest'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.secret_key = 'pratisha'
 # app.config['JWT_AUTH_URL_RULE'] = '/login'

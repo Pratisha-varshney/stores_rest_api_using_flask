@@ -18,11 +18,6 @@ app.secret_key = 'pratisha'
 api = Api(app)
 
 
-@app.before_first_request
-def create_table():
-    db.create_all()
-
-
 jwt = JWT(app, authenticate, identity)  #/auth
 
 api.add_resource(Stores, '/store/<string:name>')
